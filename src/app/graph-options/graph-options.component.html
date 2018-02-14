@@ -1,0 +1,6 @@
+<div *ngIf="visible">
+  <div style="display: block">
+    <canvas baseChart #baseChart="base-chart" [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType" 
+      (chartClick)="chartClicked($event)"></canvas>
+  </div>
+</div>
