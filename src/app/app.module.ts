@@ -11,6 +11,7 @@ import { TabsComponent } from './tabs/tabs.component';
 import { GraphOptionsComponent } from './graph-options/graph-options.component';
 
 import { ChartsModule } from 'ng2-charts';
+import { DatagridComponent } from './datagrid/datagrid.component';
 
 
 @NgModule({
@@ -19,6 +20,7 @@ import { ChartsModule } from 'ng2-charts';
         SidenavComponent,
         TabsComponent,
         GraphOptionsComponent,
+        DatagridComponent,
         
 
     ],

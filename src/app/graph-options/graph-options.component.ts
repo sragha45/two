@@ -3,7 +3,6 @@ import { SiblingInteractionService } from 'app/sidenav-graph-service';
 import { BaseChartDirective } from 'ng2-charts';
 
 
-
 @Component({
   selector: 'app-graph-options',
   templateUrl: './graph-options.component.html',
@@ -13,14 +12,18 @@ export class GraphOptionsComponent implements OnInit {
 
   constructor(private siblingInteraction: SiblingInteractionService) { }
 
-  visible: boolean = false;
+  chartVisible: boolean = false;
+  dataGridVisible: boolean = false;
+
+  context: string = "";
+  sliceClicked: string = "";
 
   @ViewChild("baseChart") chart: BaseChartDirective;
 
   refreshChart() {
-    this.visible = false;
+    this.chartVisible = false;
     setTimeout(() => {
-      this.visible = true;
+      this.chartVisible = true;
     }, 1);
   }
 
@@ -37,30 +40,39 @@ export class GraphOptionsComponent implements OnInit {
     }
   }
 
-
-  public chartClicked(e:any):void {
-    console.log(this.pieChartLabels[e.active[0]._index]);
+  refreshDataGrid() {
+    this.dataGridVisible = false;
+    setTimeout(() => {
+      this.dataGridVisible = true;
+    }, 1);
   }
 
-  populateData(name) {
+  public chartClicked(e:any):void {
+    this.refreshDataGrid();
+    this.sliceClicked = this.pieChartLabels[e.active[0]._index];
+    // console.log(this.pieChartLabels[e.active[0]._index]);
+  }
+
+  populateData(context) {
     
     this.pieChartLabels = [];
     this.pieChartData = [];
+    this.context = context;
 
-    if(name == 'Cluster') {
+    if(context == 'Cluster') {
       this.pieChartLabels = ['Provider List', 'Remote mem util', 'RDMA Network utilization',
                              'I/O Bandwidth', 'Consumer List'];
       this.pieChartData = [100, 100, 100, 100, 100];
     }  
-    else if(name == 'Provider') {
+    else if(context == 'Provider') {
       this.pieChartLabels = ['Remote Mem Contribution', 'Consumer List', 'I/O Bandwidth'];
       this.pieChartData = [100, 100, 100];
     }
-    else if(name == 'Consumer') {
+    else if(context == 'Consumer') {
       this.pieChartLabels = ['Remote Memory Usage', 'Provider List', 'I/O Bandwidth', 'VM List', 'Consumption of RM by VM'];
       this.pieChartData = [100, 100, 100, 100, 100];
     }
-    else if(name == 'VM') {
+    else if(context == 'VM') {
       this.pieChartLabels = ['Provider List', 'RM Usage', 'Number of SwapOuts', 'Number of SwapIns'];
       this.pieChartData = [100, 100, 100, 100];
     }
@@ -68,7 +80,7 @@ export class GraphOptionsComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.siblingInteraction.eventNotifier.subscribe(name => {  this.populateData(name);  this.refreshChart(); });
+    this.siblingInteraction.eventNotifier.subscribe(context => {  this.populateData(context);  this.refreshChart(); });
   }
 
 }

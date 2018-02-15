@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-md-6">
-    <div *ngIf="visible">
+    <div *ngIf="chartVisible">
       <div style="display: block">
         <canvas baseChart #baseChart="base-chart" [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType" (chartClick)="chartClicked($event)"
           [options]="options">
@@ -9,6 +9,8 @@
     </div>
   </div>
   <div class = "col-md-6">
-    
+    <div *ngIf = "dataGridVisible">
+      <app-datagrid [sliceClicked] = "sliceClicked" [context] = "context"></app-datagrid>
+    </div>
   </div>
-</div>
+</div>  
