@@ -1,5 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
-import { SiblingInteractionService } from 'app/sibling-interaction.service';
+import { SiblingInteractionService } from 'app/sidenav-graph-service';
 
 @Component({
   selector: 'app-sidenav',

@@ -1,6 +1,14 @@
-<div *ngIf="visible">
-  <div style="display: block">
-    <canvas baseChart #baseChart="base-chart" [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType" 
-      (chartClick)="chartClicked($event)"></canvas>
+<div class="row">
+  <div class="col-md-6">
+    <div *ngIf="visible">
+      <div style="display: block">
+        <canvas baseChart #baseChart="base-chart" [data]="pieChartData" [labels]="pieChartLabels" [chartType]="pieChartType" (chartClick)="chartClicked($event)"
+          [options]="options">
+        </canvas>
+      </div>
+    </div>
+  </div>
+  <div class = "col-md-6">
+    
   </div>
 </div>

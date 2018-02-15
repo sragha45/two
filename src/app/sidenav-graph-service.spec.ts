@@ -1,6 +1,6 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { SiblingInteractionService } from './sibling-interaction.service';
+import { SiblingInteractionService } from './sidenav-graph-service';
 
 describe('SiblingInteractionService', () => {
   beforeEach(() => {

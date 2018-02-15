@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { SiblingInteractionService } from 'app/sibling-interaction.service';
+import { SiblingInteractionService } from 'app/sidenav-graph-service';
 
 @Component({
     selector: 'my-app',

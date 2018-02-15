@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { SiblingInteractionService } from 'app/sibling-interaction.service';
+import { SiblingInteractionService } from 'app/sidenav-graph-service';
 import { BaseChartDirective } from 'ng2-charts';
 
 
@@ -27,9 +27,19 @@ export class GraphOptionsComponent implements OnInit {
   public pieChartLabels:string[] = []; 
   public pieChartData:number[] = [];
   public pieChartType:string = 'pie';
+  public options = {
+    tooltips:{
+      callbacks:{
+        label: function(tooltipItem, data){
+          return data.labels[tooltipItem.index];
+        }
+      }
+    }
+  }
+
 
   public chartClicked(e:any):void {
-    console.log(e);
+    console.log(this.pieChartLabels[e.active[0]._index]);
   }
 
   populateData(name) {
