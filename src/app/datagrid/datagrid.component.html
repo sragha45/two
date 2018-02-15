@@ -1,12 +1,14 @@
-<h1>
-  {{ sliceClicked }}
-</h1>
+<div *ngIf="shouldDisplayTable  ">
+  <h1>
+    {{ sliceClicked }}
+  </h1>
 
-<clr-datagrid>
-  <clr-dg-column *ngFor="let column of columns">
-    {{ column }}
-  </clr-dg-column>
-  <clr-dg-row *ngFor="let node of rows">
-    <clr-dg-cell *ngFor="let property of columns"> {{ node[property] }} </clr-dg-cell>
-  </clr-dg-row>
-</clr-datagrid>
+  <clr-datagrid>
+    <clr-dg-column *ngFor="let column of columns">
+      {{ column }}
+    </clr-dg-column>
+    <clr-dg-row *ngFor="let node of rows">
+      <clr-dg-cell *ngFor="let property of columns"> {{ node[property] }} </clr-dg-cell>
+    </clr-dg-row>
+  </clr-datagrid>
+</div>

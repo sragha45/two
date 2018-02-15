@@ -1,3 +1,7 @@
+<h1>
+  {{ context }}
+</h1>
+
 <div class="row">
   <div class="col-md-6">
     <div *ngIf="chartVisible">
@@ -10,7 +14,7 @@
   </div>
   <div class = "col-md-6">
     <div *ngIf = "dataGridVisible">
-      <app-datagrid [sliceClicked] = "sliceClicked" [context] = "context"></app-datagrid>
+        <app-datagrid [details] = "details" [sliceClicked] = "sliceClicked" [context] = "context"></app-datagrid>
     </div>
   </div>
 </div>  

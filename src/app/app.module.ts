@@ -14,15 +14,15 @@ import { ChartsModule } from 'ng2-charts';
 import { DatagridComponent } from './datagrid/datagrid.component';
 
 
+import { MockDataGridService } from 'app/mock-data-grid-service';
+
 @NgModule({
     declarations: [
         AppComponent,
         SidenavComponent,
         TabsComponent,
         GraphOptionsComponent,
-        DatagridComponent,
-        
-
+        DatagridComponent,     
     ],
     imports: [
         BrowserAnimationsModule,
@@ -33,7 +33,7 @@ import { DatagridComponent } from './datagrid/datagrid.component';
         ChartsModule,
         ROUTING
     ],
-    providers: [],
+    providers: [ MockDataGridService ],
     bootstrap: [AppComponent]
 })
 export class AppModule {
