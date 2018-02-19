@@ -98,13 +98,6 @@ export class DatagridComponent implements OnInit {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if(changes.details !== undefined) 
-      // console.log(changes.details);
-    if(changes.context !== undefined)
-      // console.log(changes.context.currentValue);
-    if(changes.sliceClicked !== undefined)
-      // console.log(changes.sliceClicked.currentValue);
-
     this.updateDataGrid();
   }
 
